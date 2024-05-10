@@ -1,0 +1,11 @@
+* {
+    font-family: monospace;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.etch-a-sketch {
+    display: flex;
+    border-style: dashed;
+    border-color: red;
+}
