@@ -4,8 +4,41 @@
     box-sizing: border-box;
 }
 
-.etch-a-sketch {
+.test-row {
+    background: red;
+}
+
+.body {
     display: flex;
+    justify-content: center;
+    flex-direction:column;
+}
+
+.etch-a-sketch {
     border-style: dashed;
     border-color: red;
+    height: 960px;
+    width: 960px;
+
+    display: flex;
+    flex-direction:column;
+}
+
+.grid-row,
+.grid-col {
+    display:flex;
+    flex: auto;
+    border-width: 5px
+}
+
+.grid-row {
+    flex-direction: row;
+    border-style: dotted;
+    border-color: cyan;
+}
+
+.grid-col {
+    border-style: double;
+    border-color: magenta;
+
 }
