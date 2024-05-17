@@ -21,19 +21,30 @@ function addGridEventListeners(pixel){
    
     let colors = ["red", "orange", "yellow", "green", "blue", "purple"];
     let rainbow_mode = document.querySelector(".rainbow-mode");
+    let opacity_mode = document.querySelector(".opacity-mode");
     
+    // opacity
+    if (opacity_mode.checked){
+        pixel.style.opacity = .1;
+        pixel.addEventListener("mouseover", ()=> {
+            let old_opacity = Number(pixel.style.opacity);
+            pixel.style.opacity = old_opacity + .1;  
+        });
+    }
+
+    // rainbow
     if (rainbow_mode.checked){
         pixel.addEventListener("mouseover", ()=>{
-            pixel.style.cssText = `background-color: ${colors[Math.floor(Math.random() * 6)]}`;
+            pixel.style.backgroundColor = `${colors[Math.floor(Math.random() * 6)]}`;
         });
     } else {
         // default - black bg color
         pixel.addEventListener("mouseover", () => {
-            pixel.style.cssText = "background-color: black;";
+            pixel.style.backgroundColor = "black";
         });
     }
 
-    // opacity
+   
 }
 
 function createNGridElement(n){
