@@ -13,6 +13,8 @@ function getGridSize(){
 
 function deleteGrid(){
     // Delete Grid element
+    let grid = document.querySelector(".etch-a-sketch");
+    grid.remove();
 }
 
 function createNGridElement(n){
@@ -62,14 +64,19 @@ function createNGridElement(n){
             // APPEND TO ROW ELEMENT
             row_div.appendChild(col_div);
 
-            col_div.textContent = "inner";
+            // col_div.textContent = "inner";
         }
     }
     return etch_a_sketch;
 }
 
+
 function main(){
     let button = document.querySelector(".grid-button");
+    let delete_button = document.querySelector(".delete-button");
+    // get number input
+
+    // Event listener for grid creation
     button.addEventListener("click", () => {
         console.log("= BUTTON PRESSED =");
         
@@ -77,6 +84,11 @@ function main(){
         let etch_a_sketch = createNGridElement(5);
         body_element.appendChild(etch_a_sketch);
     });
+
+    // delte button event listener
+    delete_button.addEventListener("click", () => {
+        deleteGrid();
+    })
 }
 
 main();
