@@ -49,9 +49,6 @@ function createNGridElement(n){
         // ROW ELEMENT
         let row_div = document.createElement("div");
         row_div.setAttribute("class", "grid-row");
-
-        // test colors
-        // row_div.setAttribute("style", `background:  ${temp_colors[i%6]};`);
         
         // APPEND TO ETCH-A-SKETCH CONTAINER
         etch_a_sketch.appendChild(row_div);
@@ -88,8 +85,14 @@ function main(){
         }
 
         let number_input = Number(grid_size.value);
-        let etch_a_sketch = createNGridElement(number_input);
-        body_element.appendChild(etch_a_sketch);
+
+        // Check if number valid
+        if (number_input > 100) {
+            alert("Number must be in the range 1-100!");
+        } else {
+            let etch_a_sketch = createNGridElement(number_input);
+            body_element.appendChild(etch_a_sketch);
+        }
     });
 }
 

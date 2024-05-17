@@ -20,10 +20,19 @@
 
     <div class="header">
         <h1>Etch-A-Sketch</h1>
-        <input class="number-input" type="number" min="1" max="100" value="5">
-
+        <input class="number-input" type="number" 
+            min="1" max="100" value="5" required>
         <!-- Calls createNGridElement([input]) -->
         <button class="grid-button">CREATE GRID :D</button>
+        <div class="fun-zone">
+            
+            <label for="rainbow">RAINBOW MODE</label>
+            <input class="rainbow-mode" name="rainbow" type="checkbox">
+
+            <label for="opacity">OPACITY MODE</label>
+            <input class="opacity-mode" name="opacity" type="checkbox">
+
+        </div>
     </div>
 
     <div class="body"></div>
