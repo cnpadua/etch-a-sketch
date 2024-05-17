@@ -17,6 +17,25 @@ function deleteGrid(){
     grid.remove();
 }
 
+function addGridEventListeners(pixel){
+   
+    let colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+    let rainbow_mode = document.querySelector(".rainbow-mode");
+    
+    if (rainbow_mode.checked){
+        pixel.addEventListener("mouseover", ()=>{
+            pixel.style.cssText = `background-color: ${colors[Math.floor(Math.random() * 6)]}`;
+        });
+    } else {
+        // default - black bg color
+        pixel.addEventListener("mouseover", () => {
+            pixel.style.cssText = "background-color: black;";
+        });
+    }
+
+    // opacity
+}
+
 function createNGridElement(n){
     /*
     Return div containing nested div
@@ -40,7 +59,7 @@ function createNGridElement(n){
     */
     console.log("= createNGridElement =");
 
-    let temp_colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+    
 
     let etch_a_sketch = document.createElement("div");
     etch_a_sketch.setAttribute("class", "etch-a-sketch");
@@ -59,9 +78,7 @@ function createNGridElement(n){
             col_div.setAttribute("class", "grid-col");
 
             // Hover event listener
-            col_div.addEventListener("mouseover", () => {
-                col_div.style.cssText = "background-color: black;";
-            } )
+            addGridEventListeners(col_div);
 
             // APPEND TO ROW ELEMENT
             row_div.appendChild(col_div);
