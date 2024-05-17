@@ -28,7 +28,6 @@
 .grid-col {
     display:flex;
     flex: auto;
-    border-width: 5px
 }
 
 .grid-row {

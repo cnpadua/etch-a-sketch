@@ -8,22 +8,25 @@
     <link rel="icon" href="favicon.ico">
 </head>
 
-<body>
+<!-- 
+    [x] Get user number input for grid
+    [x] Hover event listener
+    [] Rainbow mode
+    [] Opacity mode
+    [] Both? AT THE SAME TIME?! >:O
+ -->
+
+ <body>
 
     <div class="header">
         <h1>Etch-A-Sketch</h1>
-        <input type="number" min="1" max="100" placeholder="5">
+        <input class="number-input" type="number" min="1" max="100" value="5">
 
         <!-- Calls createNGridElement([input]) -->
-        <button class="grid-button">CLICK ME</button>
-        <button class="delete-button">DELETE</button>
+        <button class="grid-button">CREATE GRID :D</button>
     </div>
 
-    <div class="body">
-        <!--
-            Grid dimensions will always be 960px
-        -->
-    </div>
+    <div class="body"></div>
 
     <script src="script.js"></script>
     

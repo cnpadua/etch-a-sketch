@@ -49,22 +49,25 @@ function createNGridElement(n){
         // ROW ELEMENT
         let row_div = document.createElement("div");
         row_div.setAttribute("class", "grid-row");
-        row_div.setAttribute("style", `background:  ${temp_colors[i%6]};`);
+
+        // test colors
+        // row_div.setAttribute("style", `background:  ${temp_colors[i%6]};`);
         
         // APPEND TO ETCH-A-SKETCH CONTAINER
         etch_a_sketch.appendChild(row_div);
-
-        // row_div.textContent = "OUTER";
 
         for (let j=0; j<n; j++){
             // COLUMN ELEMENT
             let col_div = document.createElement("div");
             col_div.setAttribute("class", "grid-col");
 
+            // Hover event listener
+            col_div.addEventListener("mouseover", () => {
+                col_div.style.cssText = "background-color: black;";
+            } )
+
             // APPEND TO ROW ELEMENT
             row_div.appendChild(col_div);
-
-            // col_div.textContent = "inner";
         }
     }
     return etch_a_sketch;
@@ -73,22 +76,21 @@ function createNGridElement(n){
 
 function main(){
     let button = document.querySelector(".grid-button");
-    let delete_button = document.querySelector(".delete-button");
-    // get number input
+    let grid_size = document.querySelector(".number-input");
 
     // Event listener for grid creation
     button.addEventListener("click", () => {
-        console.log("= BUTTON PRESSED =");
-        
         let body_element = document.querySelector(".body");
-        let etch_a_sketch = createNGridElement(5);
+
+        // check if not empty
+        if (body_element.innerHTML  != "") {
+            deleteGrid();    
+        }
+
+        let number_input = Number(grid_size.value);
+        let etch_a_sketch = createNGridElement(number_input);
         body_element.appendChild(etch_a_sketch);
     });
-
-    // delte button event listener
-    delete_button.addEventListener("click", () => {
-        deleteGrid();
-    })
 }
 
 main();
