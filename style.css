@@ -2,24 +2,27 @@
     font-family: monospace;
     text-align: center;
     box-sizing: border-box;
+
 }
 
-.test-row {
-    background: red;
+h1, .fun-zone {
+    margin: 5px;
 }
 
 .body {
     display: flex;
     align-items: center;
     flex-direction:column;
+    margin: auto;
+    
+    height: 500px;
+    width: 500px;
+    outline: 2px dashed grey;
 }
 
 .etch-a-sketch {
-    border-style: dashed;
-    border-color: red;
-    height: 960px;
-    width: 960px;
-
+    height: 500px;
+    width: 500px;
     display: flex;
     flex-direction:column;
 }

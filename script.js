@@ -1,16 +1,3 @@
-
-function getGridSize(){
-    /*
-    Returns users input:Number
-    
-    if n<=100:
-        return input
-    else:
-        return -1
-
-    */
-}
-
 function deleteGrid(){
     // Delete Grid element
     let grid = document.querySelector(".etch-a-sketch");
@@ -98,21 +85,38 @@ function createNGridElement(n){
     return etch_a_sketch;
 }
 
+function isValidSize(n){
+    return n > 0 && n < 101;
+}
 
-function main(){
-    let button = document.querySelector(".grid-button");
+function isEmpty() {
+    let body_element = document.querySelector(".body");
+    return body_element.innerHTML  != ""
+}
+
+function getGridSize(){
     let grid_size = document.querySelector(".number-input");
+    return Number(grid_size.value);
+}
 
-    // Event listener for grid creation
-    button.addEventListener("click", () => {
+function activateGridListener(element){
+    // Change grey outline to red
+    element.addEventListener("click", ()=> {
+        let body = document.querySelector(".body");
+        body.style.outline = "4px dashed red";
+    }); 
+}
+
+function addGridCreateListener(element){
+    element.addEventListener("click", () => {
         let body_element = document.querySelector(".body");
 
         // check if not empty
-        if (body_element.innerHTML  != "") {
+        if (isEmpty()) {
             deleteGrid();    
         }
 
-        let number_input = Number(grid_size.value);
+        let number_input = getGridSize();
 
         // Check if number valid
         if (number_input > 100) {
@@ -122,6 +126,20 @@ function main(){
             body_element.appendChild(etch_a_sketch);
         }
     });
+
+    activateGridListener(element);
+}
+
+
+
+function main(){
+    let button = document.querySelector(".grid-button");
+    let rainbow = document.querySelector(".rainbow-mode");
+    let opacity = document.querySelector(".opacity-mode");
+
+    addGridCreateListener(button);
+    addGridCreateListener(rainbow);
+    addGridCreateListener(opacity);
 }
 
 main();
