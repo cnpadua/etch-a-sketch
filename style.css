@@ -37,6 +37,8 @@ h1, .fun-zone {
     flex-direction: row;
 }
 
-.grid-col {
-    
+.git-icon {
+    height: 40px;
+    width: auto;
+    margin: 10px;
 }
